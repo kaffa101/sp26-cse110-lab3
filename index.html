@@ -4,13 +4,190 @@
     <title>Team 19</title>
     <meta name="description" content="Part 1">
     <link rel="icon" href="./images.jpeg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+NZ+Guides&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --main_color: #4b6cb7;
+      }
+      body {
+        margin: 0;
+        color: var(--main_color, green);
+        background-color: hsl(220, 30%, 95%);
+        font-family: "Playwrite NZ Guides", cursive;
+      } /* affect the body*/
+      * {
+        box-sizing: border-box;
+      } /* universal selector*/
+      h1 {
+        color: var(--main_color, blue);
+        margin: 20px auto 10px 0; 
+        text-align: center;
+      }
+      h2 {
+        color: orange; 
+      }
+      h3 {
+        color: rgb(255, 0, 0); 
+      }
+      footer {
+        color: color(display-p3 0.25 0.45 0.9);
+      }
+      header {
+        background-color: #f0f0f0;
+      }
+      fieldset{
+        padding: 1em 2rem 1vh 10px; 
+        border-color: rgb(130, 148, 200);
+        border-width: 1pc;
+        border-style: solid;
+        border-radius: 2pc;
+        margin: 1cm 0.5in; 
+      }
+      .schedule-box {
+        background-color: #f8faff;
+        padding-top: 1em;
+        padding-right: 2rem;
+        padding-bottom: 1vh;
+        padding-left: 10px;
+        margin: 5mm; 
+      }
+      section {
+        margin: 20px; 
+      }
+      p {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem; 
+      }
+      .highlight {
+        border: 1px solid blue; 
+      }
+      a {
+        text-decoration: underline;
+      }
+      em {
+        text-decoration: line-through;
+      }
+      .display-demo {
+        display: block;
+        background: lightblue;
+        height: 50px;
+        width: 100%;
+        max-width: 500px;
+        min-width: 200px;
+      }
+      .inline-span {
+        display: inline;
+        background: yellow;
+      }
+      .inline-block-div {
+        display: inline-block;
+        background: green;
+      }
+      header {
+        position: sticky;
+        top: 0;
+      }
+      .fixed-div {
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: yellow;
+        padding: 5px;
+      }
+      a:hover {
+        text-decoration: none;
+        color: blue;
+      }
+      a:active {
+        color: red;
+      }
+      .flex-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      @media (max-width: 768px) {
+        body {
+          background-color: lightcoral;
+        }
+      }
+      #main-header {
+        font-size: 2em;
+      }
+      [type="text"] {
+        border: 2px solid green;
+      }
+      section {
+        padding: 10px;
+      } 
+      h2, h3 {
+        color: rgba(34, 50, 99, 0.95);
+      }
+      section p {
+        color: darkgreen;
+      }
+      section ol {
+        background: #eee;
+      }
+      ul > li {
+        list-style-type: none;
+      }
+      h3 ~ p {
+        margin-left: 20px;
+      }
+      h2 + hr {
+        display: none;
+      }
+      p.highlight {
+        background: lightyellow;
+      }
+      section:has(ol) {
+        background-color: color-mix(in srgb, #e5eeff 35%, white 65%);
+      }
+      .schedule-box {
+        background-color: #f8faff;
+        padding: 1rem;
+        & summary {
+          font-weight: 700;
+          cursor: pointer;
+        }
+        & p {
+          margin: 0.7rem 0 0 0;
+        }
+      }
+      .grid-section {
+        display: grid;
+        grid-template-columns: 200px 200px 200px;
+        grid-auto-rows: minmax(80px, auto);
+        gap: 12px;
+      }
+      form > fieldset {
+        background-color: rgb(201, 227, 161);
+      }
+      details ~ form {
+        margin-top: 0.75rem;
+      }
+    </style>
   </head>
   <body>
     <header>
-       <h1>Team 19's <br>HTML Page</h1>
+       <h1 id="main-header">Team 19's <br>HTML Page</h1>
     </header>
+    <div class="fixed-div">George</div>
+    <div class="display-demo">Team <span class="inline-span">19's</span><div class="inline-block-div">minutes</div></div>
     <main>
-    
+      <section class="grid-section">
+        <div>Agenda</div>
+        <div>Notes</div>
+        <div>Tasks</div>
+        <div>Reminders</div>
+      </section>
     <div>
       <h2><i>Welcome!</i></h2>
     </div> 
@@ -18,8 +195,8 @@
       
       <section> 
         <h3><strong>Hello!</strong></h3>
-        <p>Best <em>Time</em> <span>To Meet</span></p>
-        <ul>
+        <p class="highlight">Best <em>Time</em> <span>To Meet</span></p>
+        <ul class="flex-list">
           <li><a href="https://en.wikipedia.org/wiki/Peach">9:30</a></li>
           <li>10:00</li>
           <li>11:30</li>
@@ -32,7 +209,8 @@
           </ol>
     
       </section>
-    <details>
+    <div>Form</div>
+    <details class="schedule-box">
       <summary>Click to see Team 19's schedule</summary>
       <p>
         We meet on Wednesdays
@@ -74,6 +252,7 @@
         <button type="submit">Submit</button>
       </fieldset>
     </form>
+    </div>
 
     <p>
       Team 19's favorite song
